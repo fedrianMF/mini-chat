@@ -27,5 +27,8 @@ npm run lint
 ### Docker
 
 ```sh
-docker next?
+docker build -t vuejs/mini-chat .
+docker run -it -p 80:80 --rm --name dockerize-vuejs-mc vuejs/mini-chat
 ```
+
+Go to <http://localhost>

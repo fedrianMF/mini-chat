@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const emits = defineEmits<{
+  sendMessage: [text: string];
+}>();
+
+const message = ref('');
+
+const sendMessage = () => {
+  if (!message.value) return;
+  emits('sendMessage', message.value);
+  message.value = '';
+};
+</script>
 <template>
   <div class="bg-white p-4 flex items-center">
     <input type="text" placeholder="Type your message..."
@@ -17,19 +32,3 @@
     </button>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const emits = defineEmits<{
-  sendMessage: [text: string];
-}>();
-
-const message = ref('');
-
-const sendMessage = () => {
-  if (!message.value) return;
-  emits('sendMessage', message.value);
-  message.value = '';
-};
-</script>
